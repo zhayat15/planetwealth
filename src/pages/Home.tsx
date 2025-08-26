@@ -24,8 +24,7 @@ import {
   Zap,
   Target,
   TrendingDown,
-  DollarSign,
-  Calendar
+  DollarSign
 } from 'lucide-react';
 
 const Home = () => {
@@ -105,7 +104,7 @@ const Home = () => {
       title: "Book Your Free Consultation",
       description: "Schedule a no-obligation consultation with our expert financial advisors.",
       action: "Book Now",
-      icon: <Calendar className="w-8 h-8" />,
+      icon: <Phone className="w-8 h-8" />,
       color: "from-blue-500 to-blue-600"
     },
     {
@@ -505,97 +504,6 @@ const Home = () => {
               View All Success Stories
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
-              <Users className="w-4 h-4 mr-2" />
-              Client Success Stories
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Trusted by Melbourne Families</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See what our clients say about our financial advisory services and why they trust us with their financial future.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Enhanced Reviews */}
-            <div className="space-y-6">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:-translate-y-1">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="flex text-yellow-400">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-current" />
-                        ))}
-                      </div>
-                      <span className="ml-2 text-gray-600 font-medium">{testimonial.rating}.0</span>
-                    </div>
-                    <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                      {testimonial.service}
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-700 mb-6 leading-relaxed italic">
-                    "{testimonial.text}"
-                  </p>
-                  
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                      {testimonial.name.split(' ')[0][0]}{testimonial.name.split(' ')[1] ? testimonial.name.split(' ')[1][0] : ''}
-                    </div>
-                    <div className="ml-4">
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600 flex items-center">
-                        <MapPin className="w-3 h-3 mr-1" />
-                        {testimonial.location}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Enhanced Office Location with Real Image */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-              <div className="flex items-center mb-6">
-                <MapPin className="w-8 h-8 text-blue-600 mr-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Visit Our Office</h3>
-              </div>
-              <p className="text-gray-600 mb-6">Located in the heart of Glen Waverley, our modern office provides a comfortable environment for all your financial planning needs.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center text-gray-700">
-                  <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span>921 High Street Road, Glen Waverley VIC 3150</span>
-                </div>
-                <div className="flex items-center text-gray-700">
-                  <Phone className="w-5 h-5 text-blue-600 mr-3" />
-                  <span>1300 004 254</span>
-                </div>
-                <div className="flex items-center text-gray-700">
-                  <Clock className="w-5 h-5 text-blue-600 mr-3" />
-                  <span>Mon-Fri 9AM-5:30PM, Sat 9AM-2PM</span>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Directions
-                </button>
-                <button className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
