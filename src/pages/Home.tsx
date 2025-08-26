@@ -226,26 +226,74 @@ const Home = () => {
             </div>
             
             <div className="relative animate-fade-in-right">
-              {/* Stats Card */}
-              <div className="bg-white bg-opacity-95 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white border-opacity-20">
-                <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">Quick Stats</h3>
+              {/* Enhanced Stats Card */}
+              <div className="bg-white bg-opacity-95 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white border-opacity-20 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-4">
+                    <TrendingUp className="w-4 h-4 mr-2 text-blue-600" />
+                    <span className="text-sm font-semibold text-gray-700">Our Impact</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Quick Stats</h3>
+                </div>
+                
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">{content.homepage.heroStats.clients}</div>
-                    <div className="text-sm text-gray-600">Happy Clients</div>
+                  <div className="text-center group hover:scale-110 transition-all duration-300 p-4 rounded-2xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100">
+                    <div className="relative">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform">
+                        {content.homepage.heroStats.clients}
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 group-hover:text-blue-700 transition-colors">Happy Clients</div>
+                    <div className="w-full h-1 bg-gradient-to-r from-blue-200 to-blue-400 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">{content.homepage.heroStats.fundsManaged}</div>
-                    <div className="text-sm text-gray-600">Funds Managed</div>
+                  
+                  <div className="text-center group hover:scale-110 transition-all duration-300 p-4 rounded-2xl hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100">
+                    <div className="relative">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform">
+                        {content.homepage.heroStats.fundsManaged}
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 group-hover:text-green-700 transition-colors">Funds Managed</div>
+                    <div className="w-full h-1 bg-gradient-to-r from-green-200 to-green-400 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">{content.homepage.heroStats.experience}</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
+                  
+                  <div className="text-center group hover:scale-110 transition-all duration-300 p-4 rounded-2xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100">
+                    <div className="relative">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform">
+                        {content.homepage.heroStats.experience}
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 group-hover:text-purple-700 transition-colors">Years Experience</div>
+                    <div className="w-full h-1 bg-gradient-to-r from-purple-200 to-purple-400 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">{content.homepage.heroStats.rating}</div>
-                    <div className="text-sm text-gray-600">Client Rating</div>
+                  
+                  <div className="text-center group hover:scale-110 transition-all duration-300 p-4 rounded-2xl hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-100">
+                    <div className="relative flex items-center justify-center">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform">
+                        {content.homepage.heroStats.rating}
+                      </div>
+                      <div className="flex ml-1 mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+                        ))}
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 group-hover:text-orange-700 transition-colors">Client Rating</div>
+                    <div className="w-full h-1 bg-gradient-to-r from-yellow-200 to-orange-400 rounded-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
+                </div>
+                
+                {/* Bottom CTA */}
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 px-6 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center group">
+                    <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    Book Free Consultation
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
               </div>
             </div>
