@@ -6,21 +6,29 @@ import StickyElements from './components/StickyElements';
 import Home from './pages/Home';
 import SuccessStories from './pages/SuccessStories';
 import Services from './pages/Services';
+import CMSApp from './cms/CMSApp';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/success-stories" element={<SuccessStories />} />
-            <Route path="/services" element={<Services />} />
-          </Routes>
-        </main>
-        <Footer />
-        <StickyElements />
+        <Routes>
+          <Route path="/cms" element={<CMSApp />} />
+          <Route path="/*" element={
+            <>
+              <Header />
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/success-stories" element={<SuccessStories />} />
+                  <Route path="/services" element={<Services />} />
+                </Routes>
+              </main>
+              <Footer />
+              <StickyElements />
+            </>
+          } />
+        </Routes>
       </div>
     </Router>
   );

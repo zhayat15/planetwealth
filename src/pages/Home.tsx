@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCMSContent } from '../hooks/useCMSContent';
 import { 
   TrendingUp, 
   Shield, 
@@ -19,6 +20,16 @@ import {
 } from 'lucide-react';
 
 const Home = () => {
+  const { content, loading } = useCMSContent();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
   const services = [
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -106,13 +117,11 @@ const Home = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
-                Your Trusted
-                <span className="block" style={{color: '#fdf8f0'}}>Financial Advisor</span>
-                <span className="block">in Melbourne</span>
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6" style={{color: '#fdf8f0'}}>
+                {content.homepage.heroTitle}
               </h1>
               <p className="text-xl lg:text-2xl mb-8 leading-relaxed" style={{color: '#faf0e0'}}>
-                Take control of your financial future with expert guidance from Melbourne's most trusted financial advisory team.
+                {content.homepage.heroSubtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
@@ -143,19 +152,19 @@ const Home = () => {
                 <h3 className="text-2xl font-bold mb-6">Quick Stats</h3>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>500+</div>
+                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>{content.homepage.heroStats.clients}</div>
                     <div className="text-sm" style={{color: '#faf0e0'}}>Happy Clients</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>$50M+</div>
+                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>{content.homepage.heroStats.fundsManaged}</div>
                     <div className="text-sm" style={{color: '#faf0e0'}}>Funds Managed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>15+</div>
+                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>{content.homepage.heroStats.experience}</div>
                     <div className="text-sm" style={{color: '#faf0e0'}}>Years Experience</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>4.9★</div>
+                    <div className="text-3xl font-bold" style={{color: '#fdf8f0'}}>{content.homepage.heroStats.rating}</div>
                     <div className="text-sm" style={{color: '#faf0e0'}}>Client Rating</div>
                   </div>
                 </div>
