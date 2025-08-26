@@ -13,36 +13,20 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Routes>
-          {/* CMS Route - Must be first to avoid conflicts */}
+          {/* CMS Routes - Must be first and most specific */}
           <Route path="/cms" element={<CMSApp />} />
           <Route path="/cms/*" element={<CMSApp />} />
           
-          {/* Main Website Routes */}
-          <Route path="/" element={
+          {/* Main Website Routes with Layout */}
+          <Route path="/*" element={
             <>
               <Header />
               <main>
-                <Home />
-              </main>
-              <Footer />
-              <StickyElements />
-            </>
-          } />
-          <Route path="/success-stories" element={
-            <>
-              <Header />
-              <main>
-                <SuccessStories />
-              </main>
-              <Footer />
-              <StickyElements />
-            </>
-          } />
-          <Route path="/services" element={
-            <>
-              <Header />
-              <main>
-                <Services />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/success-stories" element={<SuccessStories />} />
+                  <Route path="/services" element={<Services />} />
+                </Routes>
               </main>
               <Footer />
               <StickyElements />
