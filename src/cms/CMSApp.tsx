@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import CMSLogin from './CMSLogin';
 import CMSDashboard from './CMSDashboard';
 
@@ -41,11 +42,17 @@ const CMSApp: React.FC = () => {
     localStorage.removeItem('cms_session');
   };
 
-  if (!isAuthenticated) {
-    return <CMSLogin onLogin={handleLogin} error={loginError} />;
-  }
-
-  return <CMSDashboard onLogout={handleLogout} />;
+  return (
+    <Routes>
+      <Route path="/*" element={
+        !isAuthenticated ? (
+          <CMSLogin onLogin={handleLogin} error={loginError} />
+        ) : (
+          <CMSDashboard onLogout={handleLogout} />
+        )
+      } />
+    </Routes>
+  );
 };
 
 export default CMSApp;
