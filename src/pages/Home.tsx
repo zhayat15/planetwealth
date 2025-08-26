@@ -227,37 +227,34 @@ const Home = () => {
             </div>
             
             <div className="relative animate-fade-in-right">
-              <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6 text-center">Quick Stats</h3>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-4xl font-bold text-yellow-400 mb-2">{content.homepage.heroStats.clients}</div>
-                    <div className="text-sm text-blue-100">Happy Clients</div>
-                  </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-4xl font-bold text-yellow-400 mb-2">{content.homepage.heroStats.fundsManaged}</div>
-                    <div className="text-sm text-blue-100">Funds Managed</div>
-                  </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-4xl font-bold text-yellow-400 mb-2">{content.homepage.heroStats.experience}</div>
-                    <div className="text-sm text-blue-100">Years Experience</div>
-                  </div>
-                  <div className="text-center group hover:scale-105 transition-transform">
-                    <div className="text-4xl font-bold text-yellow-400 mb-2">{content.homepage.heroStats.rating}</div>
-                    <div className="text-sm text-blue-100">Client Rating</div>
-                  </div>
-                </div>
+              {/* Hero Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Professional financial advisor consulting with clients"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
-                {/* Quick Contact */}
-                <div className="mt-6 pt-6 border-t border-white border-opacity-20">
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center text-blue-100">
-                      <Phone className="w-4 h-4 mr-2" />
-                      1300 004 254
+                {/* Overlay Stats Card */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white bg-opacity-95 backdrop-blur-lg rounded-2xl p-6 border border-white border-opacity-20">
+                  <h3 className="text-xl font-bold mb-4 text-center text-gray-900">Quick Stats</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center group hover:scale-105 transition-transform">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">{content.homepage.heroStats.clients}</div>
+                      <div className="text-xs text-gray-600">Happy Clients</div>
                     </div>
-                    <div className="flex items-center text-blue-100">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      Glen Waverley
+                    <div className="text-center group hover:scale-105 transition-transform">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">{content.homepage.heroStats.fundsManaged}</div>
+                      <div className="text-xs text-gray-600">Funds Managed</div>
+                    </div>
+                    <div className="text-center group hover:scale-105 transition-transform">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">{content.homepage.heroStats.experience}</div>
+                      <div className="text-xs text-gray-600">Years Experience</div>
+                    </div>
+                    <div className="text-center group hover:scale-105 transition-transform">
+                      <div className="text-2xl font-bold text-blue-600 mb-1">{content.homepage.heroStats.rating}</div>
+                      <div className="text-xs text-gray-600">Client Rating</div>
                     </div>
                   </div>
                 </div>
@@ -459,6 +456,112 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Success Stories Preview with Images */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+              <Users className="w-4 h-4 mr-2" />
+              Success Stories
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Real Results from Real Clients</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how we've helped Melbourne families achieve their financial dreams
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                  alt="Happy couple with their new home keys"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="bg-green-500 px-2 py-1 rounded text-xs font-semibold mb-1">First Home Buyers</div>
+                  <h3 className="font-bold">Sarah & Michael</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">"Planet Wealth helped us secure our dream home with just 5% deposit. Their expertise made the impossible possible!"</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">Camberwell, VIC</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                  alt="Professional man reviewing investment portfolio"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="bg-blue-500 px-2 py-1 rounded text-xs font-semibold mb-1">Investment Property</div>
+                  <h3 className="font-bold">David Chen</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">"Their investment strategy advice was spot-on. I'm now building wealth while someone else pays my mortgage."</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">Glen Waverley, VIC</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/1587014/pexels-photo-1587014.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                  alt="Retired couple enjoying their financial security"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="bg-purple-500 px-2 py-1 rounded text-xs font-semibold mb-1">Retirement Planning</div>
+                  <h3 className="font-bold">Jennifer & Robert</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">"We can now retire comfortably knowing our financial future is secure. The peace of mind is invaluable."</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">Brighton, VIC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link 
+              to="/success-stories"
+              className="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              View All Success Stories
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Testimonials Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -512,42 +615,44 @@ const Home = () => {
               ))}
             </div>
 
-            {/* Enhanced Office Location */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-2xl mr-4">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Visit Our Office</h3>
-                  <p className="text-gray-600">Glen Waverley, Melbourne</p>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-br from-blue-100 to-purple-100 h-64 rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-10"></div>
-                <div className="text-center text-gray-700 relative z-10">
-                  <MapPin className="w-16 h-16 mx-auto mb-4 text-blue-600" />
-                  <p className="font-semibold text-lg">Interactive Map</p>
-                  <p className="text-sm mt-2">921 High Street Road<br />Glen Waverley VIC 3150</p>
+            {/* Enhanced Office Location with Real Image */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="relative h-64">
+                <img 
+                  src="https://images.pexels.com/photos/416320/pexels-photo-416320.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Modern office building in Melbourne"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="flex items-center mb-2">
+                    <MapPin className="w-5 h-5 mr-2" />
+                    <span className="font-semibold">Our Melbourne Office</span>
+                  </div>
+                  <p className="text-sm opacity-90">921 High Street Road, Glen Waverley</p>
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
-                <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Directions
-                </button>
-                <button className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </button>
-              </div>
-              
-              <div className="mt-6 p-4 bg-blue-50 rounded-xl">
-                <div className="flex items-center text-sm text-blue-800">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span className="font-medium">Open Mon-Fri 9AM-5:30PM, Sat 9AM-2PM</span>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Visit Our Office</h3>
+                <p className="text-gray-600 mb-6">Located in the heart of Glen Waverley, our modern office provides a comfortable environment for all your financial planning needs.</p>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    Directions
+                  </button>
+                  <button className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Now
+                  </button>
+                </div>
+                
+                <div className="bg-blue-50 p-4 rounded-xl">
+                  <div className="flex items-center text-sm text-blue-800">
+                    <Clock className="w-4 h-4 mr-2" />
+                    <span className="font-medium">Open Mon-Fri 9AM-5:30PM, Sat 9AM-2PM</span>
+                  </div>
                 </div>
               </div>
             </div>
