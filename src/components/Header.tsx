@@ -77,6 +77,13 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link 
+              to="/cms"
+              className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+              title="Admin Login"
+            >
+              Admin
+            </Link>
             <button 
               className="text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
               style={{background: 'linear-gradient(to right, #d4a255, #c68a3f)'}}
@@ -125,6 +132,13 @@ const Header = () => {
               </Link>
             ))}
             <div className="mt-4 px-3">
+              <Link 
+                to="/cms"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-center text-gray-700 hover:text-gray-900 px-6 py-2 rounded-lg font-medium transition-colors mb-2"
+              >
+                Admin Login
+              </Link>
               <button 
                 className="w-full text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
                 style={{background: 'linear-gradient(to right, #d4a255, #c68a3f)'}}
