@@ -415,11 +415,13 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
-            {/* Connection Lines */}
-            <div className="hidden lg:block absolute top-1/2 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform -translate-y-1/2"></div>
-            
             {steps.map((step, index) => (
-              <div key={index} className="text-center group relative">
+              <div key={index} className="text-center group relative z-10">
+                {/* Connection Line to Next Step */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform -translate-x-4"></div>
+                )}
+                
                 <div className="relative mb-8">
                   <div className={`bg-gradient-to-r ${step.color} text-white w-24 h-24 rounded-3xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl`}>
                     {step.number}
