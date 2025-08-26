@@ -13,7 +13,10 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Routes>
-          <Route path="/cms" element={<CMSApp />} />
+          {/* CMS Route - Must be first to avoid conflicts */}
+          <Route path="/cms/*" element={<CMSApp />} />
+          
+          {/* Main Website Routes */}
           <Route path="/*" element={
             <>
               <Header />
