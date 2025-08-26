@@ -24,7 +24,8 @@ import {
   Zap,
   Target,
   TrendingDown,
-  DollarSign
+  DollarSign,
+  Calendar
 } from 'lucide-react';
 
 const Home = () => {
